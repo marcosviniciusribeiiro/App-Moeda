@@ -1,12 +1,13 @@
 package com.exemplo.ewm.appmoeda;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -44,18 +45,15 @@ public class MainActivity extends AppCompatActivity {
         btConverter = findViewById(R.id.id_btn_converter);
         txResultado = findViewById(R.id.id_resultado);
 
-        btConverter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                converter();
-                /*
-                NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
-                double cotacao = Double.parseDouble(edCotacao.getText().toString());
-                double reais = Double.parseDouble(edReais.getText().toString());
-                double valorConversao = reais / cotacao;
-                txResultado.setText("Resultado: "+formato.format(valorConversao)+" Dólares ");*/
+        btConverter.setOnClickListener(view -> {
+            converter();
+            /*
+            NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
+            double cotacao = Double.parseDouble(edCotacao.getText().toString());
+            double reais = Double.parseDouble(edReais.getText().toString());
+            double valorConversao = reais / cotacao;
+            txResultado.setText("Resultado: "+formato.format(valorConversao)+" Dólares ");*/
 
-            }
         });
 
     }
@@ -70,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
             Call<Map<String, Cotacao>> chamada = servico.buscarValorCotacao();
             chamada.enqueue(new Callback<Map<String, Cotacao>>() {
                 @Override
-                public void onResponse(Call<Map<String, Cotacao>> call, Response<Map<String, Cotacao>> response) {
+                public void onResponse(@NonNull Call<Map<String, Cotacao>> call, Response<Map<String, Cotacao>> response) {
                     if (response.isSuccessful()){
+                        assert response.body() != null;
                         Cotacao cotacao = response.body().get("USDBRL");
+                        assert cotacao != null;
                         edCotacao.setText(cotacao.getValor());
                         NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
                         double reais = Double.parseDouble(edReais.getText().toString());
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onFailure(Call<Map<String, Cotacao>> call, Throwable t) {
                     txResultado.setText("Erro na requisição: "+t.getMessage());
