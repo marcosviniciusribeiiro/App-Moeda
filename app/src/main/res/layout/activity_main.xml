@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="327dp"
+        android:layout_height="489dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/conversao_dolar"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="199dp"
+            android:layout_height="77dp"
+            android:layout_marginBottom="120dp"
+            android:contentDescription="@string/icone_de_moeda"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toTopOf="@+id/id_val_cotacao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/dollar" />
+
+        <EditText
+            android:id="@+id/id_val_cotacao"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/cotacao_do_dolar"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="60dp" />
+
+        <EditText
+            android:id="@+id/id_val_reais"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/valor_em_reais"
+            android:inputType="numberDecimal"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+        <Button
+            android:id="@+id/id_btn_converter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/converter"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="307dp" />
+
+        <TextView
+            android:id="@+id/id_resultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resultado"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="355dp" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
