@@ -61,10 +61,10 @@
                 android:text="@string/euro"/>
 
             <RadioButton
-                android:id="@+id/rd_libra"
+                android:id="@+id/rd_btc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/libra" />
+                android:text="@string/bitcoin" />
         </RadioGroup>
 
         <EditText
