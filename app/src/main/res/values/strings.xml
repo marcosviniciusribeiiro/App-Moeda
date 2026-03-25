@@ -6,9 +6,9 @@
     <string name="moeda">Moedas:</string>
     <string name="dolar">Dólar</string>
     <string name="euro">Euro</string>
-    <string name="libra">Líbra</string>
+    <string name="bitcoin">Bitcoin</string>
     <string name="resultado">Resultado:</string>
     <string name="converter">Converter</string>
     <string name="icone_de_moeda">Icone de Moeda</string>
-    <string name="resultado_de_erro">Resultado: \nErro ao buscar o valor da cotação</string>
+    <string name="resultado_de_erro">Erro ao buscar o valor da cotação</string>
 </resources>
