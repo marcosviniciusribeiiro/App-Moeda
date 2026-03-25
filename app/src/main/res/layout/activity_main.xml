@@ -9,8 +9,8 @@
 
 
     <LinearLayout
-        android:layout_width="327dp"
-        android:layout_height="489dp"
+        android:layout_width="315dp"
+        android:layout_height="625dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
