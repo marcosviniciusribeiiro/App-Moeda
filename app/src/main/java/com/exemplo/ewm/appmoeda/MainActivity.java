@@ -1,6 +1,5 @@
 package com.exemplo.ewm.appmoeda;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +22,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+/*
+  Evoluir o projeto para
+- O valor da cotação já aparecer na tela assim que o aplicativo for inicializado
+- Inserir a escolha de outras moedas para conveter para o real
+*/
+
+public class MainActivity  extends AppCompatActivity{
+    // declarando as variáveis para os componentes do app
     EditText edCotacao;
     EditText edReais;
     Button btConverter;
@@ -39,57 +45,60 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        //instanciar
+
+        // instanciando as variáveis do app
         edCotacao = findViewById(R.id.id_val_cotacao);
         edReais = findViewById(R.id.id_val_reais);
         btConverter = findViewById(R.id.id_btn_converter);
         txResultado = findViewById(R.id.id_resultado);
 
-        btConverter.setOnClickListener(view -> {
-            converter();
-            /*
-            NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
-            double cotacao = Double.parseDouble(edCotacao.getText().toString());
-            double reais = Double.parseDouble(edReais.getText().toString());
-            double valorConversao = reais / cotacao;
-            txResultado.setText("Resultado: "+formato.format(valorConversao)+" Dólares ");*/
 
-        });
+
+        btConverter.setOnClickListener(view -> converterMoeda());
 
     }
 
-    private void converter() {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://economia.awesomeapi.com.br/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+    private void converterMoeda() {
+        // codigo com metodo para converter a moeda
+        // URL da api de moeda
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://economia.awesomeapi.com.br/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-            ServicoAPI servico = retrofit.create(ServicoAPI.class);
-            Call<Map<String, Cotacao>> chamada = servico.buscarValorCotacao();
-            chamada.enqueue(new Callback<Map<String, Cotacao>>() {
-                @Override
-                public void onResponse(@NonNull Call<Map<String, Cotacao>> call, Response<Map<String, Cotacao>> response) {
-                    if (response.isSuccessful()){
-                        assert response.body() != null;
-                        Cotacao cotacao = response.body().get("USDBRL");
-                        assert cotacao != null;
-                        edCotacao.setText(cotacao.getValor());
-                        NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
-                        double reais = Double.parseDouble(edReais.getText().toString());
-                        double valorConversao = reais / Double.parseDouble(cotacao.getValor());
-                        txResultado.setText(String.format("Resultado: %s Dólares ", formato.format(valorConversao)));
-                    } else {
-                        txResultado.setText("Resultado:\nErro ao buscar a cotação");
-                    }
-
-
+        ServicoAPI servico = retrofit.create(ServicoAPI.class);
+        Call<Map<String, Cotacao>> chamada = servico.buscarValorCotacao();
+        chamada.enqueue(new Callback<>() {
+            @Override
+            public void onResponse(@NonNull Call<Map<String, Cotacao>> call, @NonNull Response<Map<String, Cotacao>> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    Cotacao cotacao = response.body().get("USDBRL");
+                    assert cotacao != null;
+                    edCotacao.setText(cotacao.getValor());
+                    NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
+                    double reais = Double.parseDouble(edReais.getText().toString());
+                    double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
+                    txResultado.setText(String.format(getString(R.string.resultado__dolares), formato.format(valorConversao)));
+                } else {
+                    txResultado.setText(R.string.resultado_de_erro);
                 }
+            }
 
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onFailure(Call<Map<String, Cotacao>> call, Throwable t) {
-                    txResultado.setText("Erro na requisição: "+t.getMessage());
-                }
-            });
+            @Override
+            public void onFailure(@NonNull Call<Map<String, Cotacao>> call, @NonNull Throwable t) {
+                txResultado.setText(String.format("Erro na requisição: \n%s", t.getMessage()));
+            }
+        });
     }
 }
+
+
+//// codigo simples de conversão:
+/*
+                NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
+                double cotacao = Double.parseDouble(edCotacao.getText().toString());
+                double reais = Double.parseDouble(edReais.getText().toString());
+                double valorConversao = reais / cotacao;
+                txResultado.setText(String.format("Resultado: %s Dólares", formato.format(valorConversao);
+ */
