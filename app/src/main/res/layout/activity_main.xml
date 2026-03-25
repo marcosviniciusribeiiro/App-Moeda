@@ -24,13 +24,12 @@
             android:textSize="25sp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Imagem -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="90dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="@string/icone_nota_dolar"
+            android:contentDescription="@string/icone_nota"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/dollar" />
 
@@ -52,13 +51,14 @@
                 android:id="@+id/rd_dol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dolar" />
+                android:text="@string/dolar"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/rd_euro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/euro" />
+                android:text="@string/euro"/>
 
             <RadioButton
                 android:id="@+id/rd_libra"
