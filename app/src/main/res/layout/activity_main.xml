@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Título -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -35,7 +34,6 @@
             android:scaleType="centerInside"
             app:srcCompat="@drawable/dollar" />
 
-        <!-- Texto moeda -->
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -43,7 +41,6 @@
             android:text="@string/moeda"
             android:layout_marginBottom="8dp" />
 
-        <!-- RadioGroup -->
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
@@ -70,7 +67,6 @@
                 android:text="@string/libra" />
         </RadioGroup>
 
-        <!-- Campo cotação -->
         <EditText
             android:id="@+id/id_val_cotacao"
             android:layout_width="match_parent"
@@ -79,7 +75,6 @@
             android:inputType="numberDecimal"
             android:layout_marginBottom="12dp" />
 
-        <!-- Campo valor -->
         <EditText
             android:id="@+id/id_val_reais"
             android:layout_width="match_parent"
@@ -88,7 +83,6 @@
             android:inputType="numberDecimal"
             android:layout_marginBottom="20dp" />
 
-        <!-- Botão -->
         <Button
             android:id="@+id/id_btn_converter"
             android:layout_width="wrap_content"
@@ -96,7 +90,6 @@
             android:text="@string/converter"
             android:layout_marginBottom="20dp" />
 
-        <!-- Resultado -->
         <TextView
             android:id="@+id/id_resultado"
             android:layout_width="wrap_content"
