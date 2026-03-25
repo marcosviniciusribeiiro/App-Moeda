@@ -3,6 +3,7 @@ package com.exemplo.ewm.appmoeda;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,18 +23,23 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/*
-  Evoluir o projeto para
-- O valor da cotação já aparecer na tela assim que o aplicativo for inicializado
-- Inserir a escolha de outras moedas para conveter para o real
-*/
-
 public class MainActivity  extends AppCompatActivity{
     // declarando as variáveis para os componentes do app
     EditText edCotacao;
     EditText edReais;
     Button btConverter;
     TextView txResultado;
+    RadioButton moeda_dol;
+    RadioButton moeda_eur;
+    RadioButton moeda_lbr;
+
+    String tipo;
+
+/*
+  Evoluir o projeto para
+- O valor da cotação já aparecer na tela assim que o aplicativo for inicializado
+- Inserir a escolha de outras moedas para conveter para o real
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +58,24 @@ public class MainActivity  extends AppCompatActivity{
         btConverter = findViewById(R.id.id_btn_converter);
         txResultado = findViewById(R.id.id_resultado);
 
+        moeda_dol = findViewById(R.id.rd_dol);
+        moeda_eur = findViewById(R.id.rd_euro);
+        moeda_lbr = findViewById(R.id.rd_libra);
 
-
-        btConverter.setOnClickListener(view -> converterMoeda());
-
+        btConverter.setOnClickListener(view ->
+                converterMoeda());
     }
 
     private void converterMoeda() {
-        // codigo com metodo para converter a moeda
+        // classifica o tipo de moeda de acordo com o radio selecionado
+        if (moeda_eur.isChecked()){
+            tipo = "Euros";
+        } else if (moeda_lbr.isChecked()){
+            tipo = "Libras";
+        } else {
+            tipo = "Dólares";
+        }
+
         // URL da api de moeda
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://economia.awesomeapi.com.br/")
@@ -79,7 +95,7 @@ public class MainActivity  extends AppCompatActivity{
                     NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.US);
                     double reais = Double.parseDouble(edReais.getText().toString());
                     double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
-                    txResultado.setText(String.format(getString(R.string.resultado__dolares), formato.format(valorConversao)));
+                    txResultado.setText("Resultado: \n" + formato.format(valorConversao)+ " " + tipo);
                 } else {
                     txResultado.setText(R.string.resultado_de_erro);
                 }
