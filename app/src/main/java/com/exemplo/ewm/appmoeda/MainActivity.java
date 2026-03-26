@@ -23,7 +23,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity  extends AppCompatActivity{
-    // declarando as variáveis para os componentes do app
     EditText edCotacao;
     EditText edReais;
     Button btConverter;
@@ -32,7 +31,9 @@ public class MainActivity  extends AppCompatActivity{
     RadioButton moeda_eur;
     RadioButton moeda_btc;
 
-    String tipo;    String chave;    String codeAPI;
+    String tipo;
+    String chave;
+    String codeAPI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
