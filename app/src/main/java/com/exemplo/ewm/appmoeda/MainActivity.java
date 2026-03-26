@@ -2,7 +2,6 @@ package com.exemplo.ewm.appmoeda;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -15,8 +14,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
