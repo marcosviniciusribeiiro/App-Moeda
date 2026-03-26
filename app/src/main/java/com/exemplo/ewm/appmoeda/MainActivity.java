@@ -115,6 +115,6 @@ public class MainActivity  extends AppCompatActivity{
         }
         double reais = Double.parseDouble(edReais.getText().toString());
         double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
-        txResultado.setText(String.format("Resultado: %.2f %s", valorConversao, tipo));
+        txResultado.setText(String.format("Resultado: \n%.2f %s", valorConversao, tipo));
     }
 }
