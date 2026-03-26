@@ -68,17 +68,17 @@ public class MainActivity  extends AppCompatActivity{
 
     private void checarCotacao() {
         if (moeda_eur.isChecked()){
-            tipo = "Euros";
-            chave = "EURBRL";
             codeAPI = "EUR-BRL";
+            chave = "EURBRL";
+            tipo = "Euros";
         } else if (moeda_btc.isChecked()){
-            tipo = "Bitcoins";
-            chave = "BTCBRL";
             codeAPI = "BTC-BRL";
+            chave = "BTCBRL";
+            tipo = "Bitcoins";
         } else {
-            tipo = "Dólares";
-            chave = "USDBRL";
             codeAPI = "USD-BRL";
+            chave = "USDBRL";
+            tipo = "Dólares";
         }
 
         Retrofit retrofit = new Retrofit.Builder()
