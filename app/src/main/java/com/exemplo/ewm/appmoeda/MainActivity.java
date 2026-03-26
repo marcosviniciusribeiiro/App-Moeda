@@ -32,9 +32,7 @@ public class MainActivity  extends AppCompatActivity{
     RadioButton moeda_eur;
     RadioButton moeda_btc;
 
-    String tipo;
-    String chave;
-    String codeAPI;
+    String tipo;    String chave;    String codeAPI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
