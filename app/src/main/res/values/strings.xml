@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Conversor R$</string>
+    <string name="app_name">$ Conversor</string>
     <string name="icone_nota">Icone da nota de um dólar</string>
     <string name="cotacao_moeda">Cotação da Moeda</string>
     <string name="valor_em_reais">Valor em Reais</string>
