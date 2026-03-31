@@ -7,23 +7,23 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="315dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="@string/conversor_de_moedas"
-            android:textSize="25sp"
-            android:layout_marginBottom="16dp" />
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -38,28 +38,28 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/moeda"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/moeda" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rd_dol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dolar"
-                android:checked="true"/>
+                android:checked="true"
+                android:text="@string/dolar" />
 
             <RadioButton
                 android:id="@+id/rd_euro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/euro"/>
+                android:text="@string/euro" />
 
             <RadioButton
                 android:id="@+id/rd_btc"
@@ -72,32 +72,31 @@
             android:id="@+id/id_val_cotacao"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
             android:autofillHints=""
             android:hint="@string/cotacao_moeda"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="12dp" />
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/id_val_reais"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginBottom="20dp"
             android:hint="@string/valor_em_reais"
             android:inputType="numberDecimal"
-            android:layout_marginBottom="20dp"
             tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/id_btn_converter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/converter"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:text="@string/converter" />
 
         <TextView
             android:id="@+id/id_resultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resultado"
             android:textSize="20sp" />
 
     </LinearLayout>
