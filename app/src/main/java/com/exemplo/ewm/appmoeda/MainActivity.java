@@ -34,6 +34,8 @@ public class MainActivity  extends AppCompatActivity{
     String tipo;
     String chave;
     String codeAPI;
+    String simbolo;
+    String formato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +72,17 @@ public class MainActivity  extends AppCompatActivity{
             codeAPI = "EUR-BRL";
             chave = "EURBRL";
             tipo = "Euros";
+            simbolo = "€";
         } else if (moeda_btc.isChecked()){
             codeAPI = "BTC-BRL";
             chave = "BTCBRL";
             tipo = "Bitcoins";
+            simbolo = "₿";
         } else {
             codeAPI = "USD-BRL";
             chave = "USDBRL";
             tipo = "Dólares";
+            simbolo = "$";
         }
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -112,8 +117,14 @@ public class MainActivity  extends AppCompatActivity{
             edReais.setError("Digite algum valor!");
             return;
         }
+        if(simbolo.equals("₿")){
+            formato = "R$ %.2f  → %s %.6f";
+        } else {
+            formato = "R$ %.2f  → %s %.2f";
+        }
+
         double reais = Double.parseDouble(edReais.getText().toString());
         double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
-        txResultado.setText(String.format("Resultado: \n%.2f %s", valorConversao, tipo));
+        txResultado.setText(String.format(formato, reais,simbolo, valorConversao));
     }
 }
