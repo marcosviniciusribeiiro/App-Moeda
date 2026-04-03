@@ -5,4 +5,5 @@
     <color name="primary">#B39DDB</color>
     <color name="text_primary">#FFFFFF</color>
     <color name="text_secondary">#B0B0B0</color>
+    <color name="black">#000000</color>
 </resources>
