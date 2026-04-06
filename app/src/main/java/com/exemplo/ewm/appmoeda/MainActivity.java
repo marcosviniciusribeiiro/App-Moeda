@@ -27,9 +27,11 @@ public class MainActivity  extends AppCompatActivity{
     EditText edReais;
     Button btConverter;
     TextView txResultado;
+
     RadioButton moeda_dol;
     RadioButton moeda_eur;
     RadioButton moeda_btc;
+    RadioButton moeda_ien;
 
     String tipo;
     String chave;
@@ -56,11 +58,13 @@ public class MainActivity  extends AppCompatActivity{
 
         moeda_dol = findViewById(R.id.rd_dol);
         moeda_eur = findViewById(R.id.rd_euro);
+        moeda_ien = findViewById(R.id.rd_iene);
         moeda_btc = findViewById(R.id.rd_btc);
 
         moeda_dol.setOnClickListener(view -> checarCotacao());
         moeda_eur.setOnClickListener(view -> checarCotacao());
         moeda_btc.setOnClickListener(view -> checarCotacao());
+        moeda_ien.setOnClickListener(view -> checarCotacao());
 
         btConverter.setOnClickListener(view -> 
                 converterMoeda());
@@ -77,7 +81,12 @@ public class MainActivity  extends AppCompatActivity{
             chave = "BTCBRL";
             tipo = "Bitcoins";
             simbolo = "₿";
-        } else {
+        } else if(moeda_ien.isChecked()){
+            codeAPI = "JPY-BRL";
+            chave = "JPYBRL";
+            tipo = "Ienes";
+            simbolo = "¥";
+        }else {
             codeAPI = "USD-BRL";
             chave = "USDBRL";
             tipo = "Dólares";
