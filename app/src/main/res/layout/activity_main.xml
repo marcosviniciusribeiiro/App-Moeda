@@ -48,9 +48,7 @@
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:orientation="horizontal">
-
             <RadioButton
                 android:id="@+id/rd_dol"
                 android:layout_width="wrap_content"
@@ -63,7 +61,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/euro" />
-
+            <RadioButton
+                android:id="@+id/rd_iene"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/iene" />
             <RadioButton
                 android:id="@+id/rd_btc"
                 android:layout_width="wrap_content"
@@ -107,7 +109,7 @@
 
         <TextView
             android:id="@+id/id_resultado"
-            android:layout_width="2dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/text_primary"
             android:textSize="22sp"
