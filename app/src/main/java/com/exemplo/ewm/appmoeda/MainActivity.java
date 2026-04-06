@@ -62,9 +62,8 @@ public class MainActivity  extends AppCompatActivity{
         moeda_eur.setOnClickListener(view -> checarCotacao());
         moeda_btc.setOnClickListener(view -> checarCotacao());
 
-        btConverter.setOnClickListener(view ->
+        btConverter.setOnClickListener(view -> 
                 converterMoeda());
-
     }
 
     private void checarCotacao() {
