@@ -33,7 +33,6 @@ public class MainActivity  extends AppCompatActivity{
     RadioButton moeda_btc;
     RadioButton moeda_ien;
 
-    String tipo;
     String chave;
     String codeAPI;
     String simbolo;
@@ -74,22 +73,18 @@ public class MainActivity  extends AppCompatActivity{
         if (moeda_eur.isChecked()){
             codeAPI = "EUR-BRL";
             chave = "EURBRL";
-            tipo = "Euros";
             simbolo = "€";
         } else if (moeda_btc.isChecked()){
             codeAPI = "BTC-BRL";
             chave = "BTCBRL";
-            tipo = "Bitcoins";
             simbolo = "₿";
         } else if(moeda_ien.isChecked()){
             codeAPI = "JPY-BRL";
             chave = "JPYBRL";
-            tipo = "Ienes";
             simbolo = "¥";
         }else {
             codeAPI = "USD-BRL";
             chave = "USDBRL";
-            tipo = "Dólares";
             simbolo = "$";
         }
 
