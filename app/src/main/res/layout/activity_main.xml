@@ -54,23 +54,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:textSize="11sp"
                 android:text="@string/dolar" />
 
             <RadioButton
                 android:id="@+id/rd_euro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="11sp"
                 android:text="@string/euro" />
+            <RadioButton
+                android:id="@+id/rd_lbr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:text="@string/libra" />
             <RadioButton
                 android:id="@+id/rd_iene"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="11sp"
                 android:text="@string/iene" />
             <RadioButton
-                android:id="@+id/rd_btc"
+                android:id="@+id/rd_yuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bitcoin" />
+                android:textSize="11sp"
+                android:text="@string/yuan" />
+
+
         </RadioGroup>
 
         <EditText
@@ -78,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="16dp"
+            android:autofillHints=""
             android:hint="@string/cotacao_moeda"
             android:inputType="numberDecimal"
             android:background="@drawable/bg_input"
@@ -90,6 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="24dp"
+            android:autofillHints=""
             android:hint="@string/valor_em_reais"
             android:inputType="numberDecimal"
             android:background="@drawable/bg_input"
