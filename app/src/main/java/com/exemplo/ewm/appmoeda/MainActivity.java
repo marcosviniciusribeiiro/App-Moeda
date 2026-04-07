@@ -30,14 +30,16 @@ public class MainActivity  extends AppCompatActivity{
 
     RadioButton moeda_dol;
     RadioButton moeda_eur;
-    RadioButton moeda_btc;
     RadioButton moeda_ien;
+    RadioButton moeda_yuan;
+    RadioButton moeda_lbr;
 
     String chave;
     String codeAPI;
     String simbolo;
     String formato;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +59,13 @@ public class MainActivity  extends AppCompatActivity{
 
         moeda_dol = findViewById(R.id.rd_dol);
         moeda_eur = findViewById(R.id.rd_euro);
+        moeda_lbr = findViewById(R.id.rd_lbr);
         moeda_ien = findViewById(R.id.rd_iene);
-        moeda_btc = findViewById(R.id.rd_btc);
+        moeda_yuan = findViewById(R.id.rd_yuan);
 
         moeda_dol.setOnClickListener(view -> checarCotacao());
         moeda_eur.setOnClickListener(view -> checarCotacao());
-        moeda_btc.setOnClickListener(view -> checarCotacao());
+        moeda_lbr.setOnClickListener(view -> checarCotacao());
         moeda_ien.setOnClickListener(view -> checarCotacao());
 
         btConverter.setOnClickListener(view -> 
@@ -74,14 +77,18 @@ public class MainActivity  extends AppCompatActivity{
             codeAPI = "EUR-BRL";
             chave = "EURBRL";
             simbolo = "€";
-        } else if (moeda_btc.isChecked()){
-            codeAPI = "BTC-BRL";
-            chave = "BTCBRL";
-            simbolo = "₿";
+        } else if (moeda_lbr.isChecked()){
+            codeAPI = "GBP-BRL";
+            chave = "GBPBRL";
+            simbolo = "£";
         } else if(moeda_ien.isChecked()){
             codeAPI = "JPY-BRL";
             chave = "JPYBRL";
-            simbolo = "¥";
+            simbolo = "JP¥";
+        } else if(moeda_yuan.isChecked()){
+            codeAPI = "CNY-BRL";
+            chave = "CNYBRL";
+            simbolo = "CN¥";
         }else {
             codeAPI = "USD-BRL";
             chave = "USDBRL";
@@ -120,12 +127,7 @@ public class MainActivity  extends AppCompatActivity{
             edReais.setError("Digite algum valor!");
             return;
         }
-        if(simbolo.equals("₿")){
-            formato = "R$ %.2f  → %s %.6f";
-        } else {
-            formato = "R$ %.2f  → %s %.2f";
-        }
-
+        formato = "R$ %.2f  → %s %.2f";
         double reais = Double.parseDouble(edReais.getText().toString());
         double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
         txResultado.setText(String.format(formato, reais,simbolo, valorConversao));
