@@ -12,4 +12,6 @@
     <string name="icone_de_moeda">Icone de Moeda</string>
     <string name="resultado_de_erro">Erro ao buscar o valor da cotação</string>
     <string name="conversor_de_moeda">Conversor de Moeda</string>
+    <string name="libra">Libra</string>
+    <string name="yuan">Yuan</string>
 </resources>
