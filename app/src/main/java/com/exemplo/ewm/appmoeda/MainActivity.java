@@ -37,7 +37,6 @@ public class MainActivity  extends AppCompatActivity{
     String chave;
     String codeAPI;
     String simbolo;
-    String formato;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -128,9 +127,8 @@ public class MainActivity  extends AppCompatActivity{
             edReais.setError("Digite algum valor!");
             return;
         }
-        formato = "R$ %.2f  → %s %.2f";
         double reais = Double.parseDouble(edReais.getText().toString());
         double valorConversao = reais / Double.parseDouble(edCotacao.getText().toString());
-        txResultado.setText(String.format(formato, reais,simbolo, valorConversao));
+        txResultado.setText(String.format("R$ %.2f  → %s %.2f", reais, simbolo, valorConversao));
     }
 }
