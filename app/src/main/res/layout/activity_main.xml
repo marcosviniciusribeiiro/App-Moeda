@@ -54,45 +54,43 @@
                 android:id="@+id/id_dol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:text="@string/dolar"
                 android:textSize="11sp"
                 android:textColor="@color/primary"
-                android:text="@string/dolar" />
+                android:checked="true" />
 
             <RadioButton
                 android:id="@+id/id_euro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/euro"
                 android:textSize="11sp"
-                android:textColor="@color/primary"
-                android:text="@string/euro" />
+                android:textColor="@color/primary"/>
             <RadioButton
                 android:id="@+id/id_libra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/libra"
                 android:textSize="11sp"
-                android:textColor="@color/primary"
-                android:text="@string/libra" />
+                android:textColor="@color/primary" />
             <RadioButton
                 android:id="@+id/id_iene"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/iene"
                 android:textSize="11sp"
-                android:textColor="@color/primary"
-                android:text="@string/iene" />
+                android:textColor="@color/primary" />
             <RadioButton
                 android:id="@+id/id_yuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/yuan"
                 android:textSize="11sp"
-                android:textColor="@color/primary"
-                android:text="@string/yuan" />
-
-
+                android:textColor="@color/primary" />
         </RadioGroup>
 
         <EditText
-            android:id="@+id/id_val_cotacao"
+            android:id="@+id/id_cotacao"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="16dp"
