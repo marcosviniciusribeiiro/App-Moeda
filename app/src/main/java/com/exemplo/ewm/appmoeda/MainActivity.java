@@ -29,10 +29,10 @@ public class MainActivity  extends AppCompatActivity{
     TextView txResultado;
 
     RadioButton moeda_dol;
-    RadioButton moeda_eur;
-    RadioButton moeda_ien;
+    RadioButton moeda_euro;
+    RadioButton moeda_libra;
+    RadioButton moeda_iene;
     RadioButton moeda_yuan;
-    RadioButton moeda_lbr;
 
     String chave;
     String codeAPI;
@@ -57,31 +57,32 @@ public class MainActivity  extends AppCompatActivity{
         btConverter = findViewById(R.id.id_btn_converter);
         txResultado = findViewById(R.id.id_resultado);
 
-        moeda_dol = findViewById(R.id.rd_dol);
-        moeda_eur = findViewById(R.id.rd_euro);
-        moeda_lbr = findViewById(R.id.rd_lbr);
-        moeda_ien = findViewById(R.id.rd_iene);
-        moeda_yuan = findViewById(R.id.rd_yuan);
+        moeda_dol = findViewById(R.id.id_dol);
+        moeda_euro = findViewById(R.id.id_euro);
+        moeda_libra = findViewById(R.id.id_libra);
+        moeda_iene = findViewById(R.id.id_iene);
+        moeda_yuan = findViewById(R.id.id_yuan);
 
         moeda_dol.setOnClickListener(view -> checarCotacao());
-        moeda_eur.setOnClickListener(view -> checarCotacao());
-        moeda_lbr.setOnClickListener(view -> checarCotacao());
-        moeda_ien.setOnClickListener(view -> checarCotacao());
+        moeda_euro.setOnClickListener(view -> checarCotacao());
+        moeda_libra.setOnClickListener(view -> checarCotacao());
+        moeda_iene.setOnClickListener(view -> checarCotacao());
+        moeda_yuan.setOnClickListener(view -> checarCotacao());
 
         btConverter.setOnClickListener(view -> 
                 converterMoeda());
     }
 
     private void checarCotacao() {
-        if (moeda_eur.isChecked()){
+        if (moeda_euro.isChecked()){
             codeAPI = "EUR-BRL";
             chave = "EURBRL";
             simbolo = "€";
-        } else if (moeda_lbr.isChecked()){
+        } else if (moeda_libra.isChecked()){
             codeAPI = "GBP-BRL";
             chave = "GBPBRL";
             simbolo = "£";
-        } else if(moeda_ien.isChecked()){
+        } else if(moeda_iene.isChecked()){
             codeAPI = "JPY-BRL";
             chave = "JPYBRL";
             simbolo = "JP¥";
