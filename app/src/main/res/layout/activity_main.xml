@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/rd_dol"
+                android:id="@+id/id_dol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -59,28 +59,28 @@
                 android:text="@string/dolar" />
 
             <RadioButton
-                android:id="@+id/rd_euro"
+                android:id="@+id/id_euro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 android:textColor="@color/primary"
                 android:text="@string/euro" />
             <RadioButton
-                android:id="@+id/rd_lbr"
+                android:id="@+id/id_libra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 android:textColor="@color/primary"
                 android:text="@string/libra" />
             <RadioButton
-                android:id="@+id/rd_iene"
+                android:id="@+id/id_iene"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 android:textColor="@color/primary"
                 android:text="@string/iene" />
             <RadioButton
-                android:id="@+id/rd_yuan"
+                android:id="@+id/id_yuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
