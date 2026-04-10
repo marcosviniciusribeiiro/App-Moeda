@@ -51,7 +51,7 @@ public class MainActivity  extends AppCompatActivity{
             return insets;
         });
 
-        edCotacao = findViewById(R.id.id_val_cotacao);
+        edCotacao = findViewById(R.id.id_cotacao);
         edReais = findViewById(R.id.id_val_reais);
         btConverter = findViewById(R.id.id_btn_converter);
         txResultado = findViewById(R.id.id_resultado);
